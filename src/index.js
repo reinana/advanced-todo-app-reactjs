@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { createClient } from "@supabase/supabase-js";
+import { SessionContextProvider } from "@supabase/auth-helpers-react";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const supabase = createClient(
+    "https://naxcijjmlxpotjhbrjua.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5heGNpamptbHhwb3RqaGJyanVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTgzODk2MjcsImV4cCI6MjAxMzk2NTYyN30.1Esi0mHThAXmS0Jl8F1DxNGwCASzipNpKrIoayhVngs"
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <SessionContextProvider supabaseClient={supabase}>
+            <App />
+        </SessionContextProvider>
+    </React.StrictMode>
+);
