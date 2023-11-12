@@ -13,7 +13,6 @@ const CreateEvent = ({ displayCreateEvent }) => {
     const [eventColor, setEventColor] = useState("");
 
     const session = useSession(); // tokens, when session exists we have a user
-    const supabase = useSupabaseClient();
 
     async function createCalendarEvent() {
         console.log("create calendar");

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import { DateTimePicker } from "@mui/x-date-pickers";
-import dayjs, { Dayjs } from 'dayjs';
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import dayjs from 'dayjs';
+import { useSession } from "@supabase/auth-helpers-react";
 import { colors } from "../Color";
 
 const EditEvent = ({ event, handleEventEdit, setIsOpenDetail, setDisplayDay }) => {
     const { id,title, start, end, description, location, color } = event;
-    const today = new Date();
+
     const [startEdit, setStartEdit] = useState(start);
     const [endEdit, setEndEdit] = useState(end);
     const [eventName, setEventName] = useState(title);
@@ -16,8 +15,6 @@ const EditEvent = ({ event, handleEventEdit, setIsOpenDetail, setDisplayDay }) =
     const [eventColor, setEventColor] = useState(color);
 
     const session = useSession(); // tokens, when session exists we have a user
-    const supabase = useSupabaseClient();
-    const navigate = useNavigate();
 
     async function updateCalendarEvent() {
         const event = {

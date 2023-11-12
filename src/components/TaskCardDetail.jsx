@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Trash2, Heart, Edit, ArrowLeft } from "react-feather";
 import EditEvent from "./EditEvent";
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useSession } from "@supabase/auth-helpers-react";
 
 const TaskCardDetail = ({ event, setIsOpenDetail, setDisplayDay }) => {
 

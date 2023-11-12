@@ -9,7 +9,6 @@ import {
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import Calendar from "./components/MyCalendar";
 import CreateEvent from "./components/CreateEvent";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -72,7 +71,6 @@ function App() {
                                                 <Route path={`/login/`} element={<Login />} /> */}
                                         </Routes>
                                     </BrowserRouter>
-                                    {/* <MyCalendar /> */}
                                 </>
                             )}
                         </>
